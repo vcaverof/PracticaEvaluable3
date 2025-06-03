@@ -22,7 +22,7 @@ public class VentaCoches {
     private JList<String> listaPedidos;
 
     //Modelo de lista para el JList
-    private DefaultListModel<String> modeloLista = new DefaultListModel<>();
+    private final DefaultListModel<String> modeloLista = new DefaultListModel<>();
 
     //Conexión con la base de datos en MySQL
     private final String URL = "jdbc:mysql://localhost:3306/finalCoches";
@@ -61,7 +61,7 @@ public class VentaCoches {
                 // Añade cada valor como una opción del comboBox
                 while (rs.next()) {
                     String valor = rs.getString(columnas[i]);
-                    //Comprobar si la opción seleccionada en el indice 4 (pilotoAutomatico) es true o false
+                    //Comprobar si la opción seleccionada en el índice 4 (pilotoAutomatico) es true o false
                     if (i == 4) {
                         if ("1".equals(valor)) { //En caso de ser 1 es TRUE
                             combo.addItem("Si"); //Introducimos TRUE en el combobox
@@ -69,7 +69,7 @@ public class VentaCoches {
                             combo.addItem("No"); //Introducimos FALSE en el combobox
                         }
                     } else {
-                        combo.addItem(valor); //Para el resto de indices, simplemente añadimos al combobox
+                        combo.addItem(valor); //Para el resto de índices, simplemente añadimos al combobox
                     }
                 }
 
@@ -88,7 +88,7 @@ public class VentaCoches {
         String ruedas = (String) comboBoxRuedas.getSelectedItem();
         String pilotoAutomatico = (String) comboBoxPiloto.getSelectedItem();
 
-        //Conversion de las variables del piloto automatico
+        //Conversion de las variables del piloto automático
         if (pilotoAutomatico == "Si") {
             pilotoAutomatico = "0";
         } else {
